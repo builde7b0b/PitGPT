@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (already in barber directory)
+# Keep CSV files but they might be large
+*.csv.bak
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Barber data files
+barber/
+# Development/Process Documentation (internal development notes - not for public)
+# Note: SUBMISSION_ANSWERS.md is kept for judges
+AI_BACKUP_SETUP.md
+AUTO_PUSH_COMPLETE.md
+QUICK_FIX.md
+REAL_DATA_SETUP.md
+SETUP_COMPLETE.md
+UI_ENHANCEMENTS.md
+GITHUB_READY.md
+GITHUB_SETUP.md
+PUSH_NOW.md
+PUSH_TO_GITHUB.md
+README_GITHUB.md
+FINAL_PUSH.md
+SUBMISSION_DOCUMENTATION.md
+
+# Git/Deployment Scripts (internal automation - not needed for users/judges)
+DO_PUSH.sh
+COMPLETE_SETUP.sh
+push-now.sh
+auto-push.sh
+setup-and-push.sh
+push-to-github.sh
+commit-history.sh
+create-and-push-commits.sh
+git-account/
+

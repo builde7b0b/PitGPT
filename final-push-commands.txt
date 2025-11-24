@@ -1,0 +1,39 @@
+# Final Git Commands to Run
+
+cd /Users/wealthybigbean/PitGPT
+
+# Initialize and configure
+git init
+git config user.email "ggives3@gmail.com"
+git config user.name "builde7b0b"
+git branch -M main
+
+# Create commits (grouped logically)
+git add README.md .gitignore
+git commit -m "Initial commit: Project setup and documentation"
+
+git add compute_metrics.py
+git commit -m "Add Python backend for race metrics computation"
+
+git add pitgpt---toyota-gr-cup-ai-engineer/package.json pitgpt---toyota-gr-cup-ai-engineer/package-lock.json pitgpt---toyota-gr-cup-ai-engineer/vite.config.ts pitgpt---toyota-gr-cup-ai-engineer/tsconfig.json pitgpt---toyota-gr-cup-ai-engineer/index.html pitgpt---toyota-gr-cup-ai-engineer/index.tsx
+git commit -m "Set up React frontend with TypeScript and Vite"
+
+git add pitgpt---toyota-gr-cup-ai-engineer/types.ts pitgpt---toyota-gr-cup-ai-engineer/services/ pitgpt---toyota-gr-cup-ai-engineer/components/ pitgpt---toyota-gr-cup-ai-engineer/App.tsx
+git commit -m "Add TypeScript types, services, and UI components"
+
+git add preprocess_telemetry.py quick_sample_telemetry.py
+git commit -m "Add telemetry preprocessing scripts"
+
+git add race_metrics.csv pitgpt---toyota-gr-cup-ai-engineer/public/
+git commit -m "Add generated metrics and processed telemetry data"
+
+git add barber/
+git commit -m "Add Toyota GR Cup race data files"
+
+git add SUBMISSION_ANSWERS.md
+git commit -m "Add submission documentation"
+
+# Set remote and push
+git remote remove origin 2>/dev/null; git remote add origin git@github.com:builde7b0b/PitGPT.git
+git push -u origin main
+

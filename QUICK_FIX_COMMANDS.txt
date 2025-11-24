@@ -1,0 +1,31 @@
+# Quick Fix for "src refspec main does not match any" Error
+
+cd /Users/wealthybigbean/PitGPT
+
+# 1. Make sure git is configured
+git config user.email "ggives3@gmail.com"
+git config user.name "builde7b0b"
+
+# 2. Initialize if needed
+git init
+
+# 3. Add all files
+git add -A
+
+# 4. Create initial commit (THIS IS THE KEY - need at least one commit)
+git commit -m "Initial commit: PitGPT - Real-Time Race Strategy"
+
+# 5. Set branch to main (can only do this after a commit exists)
+git branch -M main
+
+# 6. Set remote
+git remote remove origin 2>/dev/null
+git remote add origin git@github.com:builde7b0b/PitGPT.git
+
+# 7. Now push (should work now that branch exists)
+git push -u origin main
+
+# If SSH doesn't work, try HTTPS:
+# git remote set-url origin https://github.com/builde7b0b/PitGPT.git
+# git push -u origin main
+
