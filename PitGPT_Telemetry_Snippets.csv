@@ -1,0 +1,26 @@
+timestamp,vehicle_id,vehicle_number,telemetry_name,telemetry_value,processed_metric,calculation_notes
+2024-01-15 14:23:01.234,GR86-022-13,13,aps,75.5,Attack Window Input,Throttle > 70% indicates aggressive driving
+2024-01-15 14:23:01.234,GR86-022-13,13,pbrake_f,45.2,Tire Stress Component,Brake pressure front contributes to tire wear
+2024-01-15 14:23:01.234,GR86-022-13,13,pbrake_r,32.1,Tire Stress Component,Brake pressure rear adds to stress calculation
+2024-01-15 14:23:01.234,GR86-022-13,13,Steering_Angle,12.5,Tire Stress + Overtake Risk,Steering angle used in multiple metrics
+2024-01-15 14:23:01.234,GR86-022-13,13,accy_can,0.85,Lateral G Force,Cornering force affects tire stress
+2024-01-15 14:23:01.456,GR86-022-13,13,aps,28.3,Fuel Conservation Mode,Low throttle < 30% indicates fuel saving
+2024-01-15 14:23:01.456,GR86-022-13,13,pbrake_f,55.8,Coasting Detection,Brake + low throttle = conservation phase
+2024-01-15 14:23:01.678,GR86-022-13,13,Steering_Angle,35.2,High Overtake Risk,Steering > 30° suggests aggressive maneuver
+2024-01-15 14:23:01.890,GR86-047-21,21,aps,82.4,Attack Window Input,High throttle during improving lap times
+2024-01-15 14:23:01.890,GR86-047-21,21,Steering_Angle,8.1,Overtake Risk Component,Moderate steering on straight
+2024-01-15 14:23:02.112,GR86-060-2,2,aps,15.2,Fuel Conservation Mode,Very low throttle for fuel saving
+2024-01-15 14:23:02.112,GR86-060-2,2,pbrake_f,0.0,Conservation Mode,No brake = coasting for efficiency
+2024-01-15 14:23:02.334,GR86-065-5,5,aps,90.1,Attack Window Input,Very high throttle > 90%
+2024-01-15 14:23:02.334,GR86-065-5,5,pbrake_f,60.5,High Tire Stress,Heavy braking increases tire wear
+2024-01-15 14:23:02.334,GR86-065-5,5,accy_can,1.2,High Lateral G,Strong cornering force
+2024-01-15 14:23:02.556,GR86-022-13,13,aps,88.7,Attack Window Active,Throttle > 70% during fast lap
+2024-01-15 14:23:02.778,GR86-047-21,21,Steering_Angle,42.8,Maximum Overtake Risk,High steering indicates passing attempt
+2024-01-15 14:23:03.000,GR86-060-2,2,pbrake_f,25.3,Moderate Stress,Light braking maintains tires
+2024-01-15 14:23:03.222,GR86-022-13,13,Steering_Angle,18.4,Tire Stress Component,Steering contributes to wear calculation
+2024-01-01 00:00:00.000,GR86-022-13,13,Calculated Metric,Tire Stress Index: 8.772,Final Result,"(brake_total * 0.4) + (steering * 0.3) + (lateral_g * 0.3) = 8.772"
+2024-01-01 00:00:00.000,GR86-022-13,13,Calculated Metric,Attack Window: 0.352,Final Result,"(improving_laps / total_laps) * (high_throttle_ratio) = 0.352"
+2024-01-01 00:00:00.000,GR86-022-13,13,Calculated Metric,Fuel Conservation: 0.294,Final Result,"(low_throttle_samples / total_samples) = 0.294"
+2024-01-01 00:00:00.000,GR86-022-13,13,Calculated Metric,Overtake Risk: 0.793,Final Result,"(steering_angle_max / 180) = 0.793"
+2024-01-01 00:00:00.000,GR86-022-13,13,Calculated Metric,Ideal Pit Window: 0.005,Final Result,"Combined slope of tire stress ↑ and lap time ↑ = 0.005"
+
