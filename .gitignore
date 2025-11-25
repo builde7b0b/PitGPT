@@ -49,6 +49,17 @@ Thumbs.db
 tmp/
 temp/
 
+# Submission package files (generated, not needed in repo)
+*.zip
+*.pdf
+*.docx
+*.doc
+PitGPT_Submission*.html
+PitGPT_Submission*.txt
+PitGPT_Submission*.pdf
+PitGPT_Submission*.docx
+PitGPT_Submission_Package.zip
+
 # Barber data files
 barber/
 # Development/Process Documentation (internal development notes - not for public)
