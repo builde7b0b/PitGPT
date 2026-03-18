@@ -1,308 +1,196 @@
-# 🏆 PitGPT — Real-Time Race Strategy Using Predictive Telemetry
+<h1 align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0b0f19&height=200&section=header&text=PitGPT&fontSize=80&fontColor=00ffcc&animation=twinkling&desc=Predictive%20Telemetry%20//%20AI%20Race%20Engineer&descSize=20&descColor=ffffff" width="100%" alt="PitGPT Header" />
+</h1>
 
-**One-Sentence Pitch:**
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/STATUS-LIVE_TELEMETRY-00ffcc?style=for-the-badge&logo=codeforces&logoColor=black" alt="Status"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/ENGINE-GPT--4o--MINI-74aa9c?style=for-the-badge&logo=openai&logoColor=white" alt="AI Engine"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/DATASET-TOYOTA_GR_CUP-ff0055?style=for-the-badge&logo=toyota&logoColor=white" alt="Dataset"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/LICENSE-MIT-0b0f19?style=for-the-badge&labelColor=00ffcc&color=0b0f19" alt="License"/></a>
+</p>
 
-PitGPT uses real telemetry data + AI to recommend optimal pit strategy, overtaking risk windows, tire stress alerts, and safe-vs-aggressive driving profiles — LIVE from Toyota GR Cup data.
+<div align="center">
+  <code>[sys.init] Booting telemetry stream...</code><br>
+  <code>[ai.core] Neural strategy models loaded...</code><br>
+  <code>[status] READY TO RACE.</code>
+</div>
 
-**Category:** 🔹 Real-Time Analytics
+<br>
 
----
+## ▓▒░ [ 01_SYSTEM_OVERVIEW ]
 
-## 💡 Project Overview
+> **`ONE-SENTENCE PITCH:`** PitGPT uses real telemetry data + AI to recommend optimal pit strategy, overtaking risk windows, tire stress alerts, and safe-vs-aggressive driving profiles — LIVE from Toyota GR Cup data.
 
-PitGPT simulates a **race engineer's decision-making process** in real-time. Rather than simply displaying lap averages or predicting winners, we analyze live telemetry to provide actionable strategic insights that help drivers and teams make split-second decisions during races.
+PitGPT simulates a **race engineer's decision-making process** in real-time. Rather than simply displaying historical lap averages, the system ingests live telemetry to generate actionable, split-second strategic insights for drivers and pit crews.
 
-### Key Differentiators
-
-- **Real-time telemetry analysis** from Toyota GR Cup race data
-- **5 strategic metrics** computed from raw sensor data
-- **AI-powered strategy recommendations** using OpenAI
-- **Transparent data sources** - judges can verify all data comes from the Barber dataset
-- **Production-ready dashboard** with live streaming telemetry
-
----
-
-## 🏗️ Architecture
-
-### Backend (Python)
-- **`compute_metrics.py`** - Computes 5 key race strategy metrics from telemetry data:
-  1. **Tire Stress Index** - High brake pressure + steering + lateral G spikes
-  2. **Attack Window** - When lap time is decreasing while throttle > 70%
-  3. **Fuel Conservation Mode** - Low throttle + long braking coast
-  4. **Overtake Risk** - High steering + low speed gap
-  5. **Ideal Pit Window** - Tire Stress ↑ & Lap Time ↑ combined slope
-
-### Frontend (React + TypeScript)
-- **Real-time dashboard** displaying telemetry and AI-generated strategy recommendations
-- **Live metrics** synced from Python backend via CSV
-- **OpenAI integration** for intelligent strategy insights (with rule-based fallback)
-- **Data source verification** - clearly shows where all data originates
+### ⚡ Key Differentiators
+* **Live Ingestion:** Real-time telemetry analysis from Toyota GR Cup race data.
+* **Algorithmic Edge:** 5 strategic metrics computed directly from raw sensor physics.
+* **Neural Strategy:** AI-powered tactical recommendations via OpenAI (w/ rule-based fallback).
+* **Cryptographic Transparency:** 100% verifiable data sources originating from the Barber dataset.
 
 ---
 
-## 📊 Dataset
+## ▓▒░ [ 02_TECH_STACK ]
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-0b0f19?style=for-the-badge&logo=python&logoColor=00ffcc" alt="Python" />
+  <img src="https://img.shields.io/badge/Pandas-0b0f19?style=for-the-badge&logo=pandas&logoColor=00ffcc" alt="Pandas" />
+  <img src="https://img.shields.io/badge/NumPy-0b0f19?style=for-the-badge&logo=numpy&logoColor=00ffcc" alt="NumPy" />
+  <img src="https://img.shields.io/badge/React_19-0b0f19?style=for-the-badge&logo=react&logoColor=00ffcc" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-0b0f19?style=for-the-badge&logo=typescript&logoColor=00ffcc" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-0b0f19?style=for-the-badge&logo=tailwindcss&logoColor=00ffcc" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/Vite-0b0f19?style=for-the-badge&logo=vite&logoColor=00ffcc" alt="Vite" />
+</p>
+
+---
+
+## ▓▒░ [ 03_ARCHITECTURE_&_METRICS ]
+
+### 🧠 Real-Time Strategic Metrics Engine
+The core Python backend (`compute_metrics.py`) processes raw sensor data into 5 critical race vectors:
+
+| Metric | Vector Analysis | Indicator |
+| :--- | :--- | :--- |
+| **`[01]` Tire Stress Index** | High brake pressure + steering + lateral G spikes | *Tire Degradation* |
+| **`[02]` Attack Window** | Lap time decreasing while throttle > 70% | *Overtaking Opportunity* |
+| **`[03]` Fuel Conservation** | Low throttle + long braking coast | *Efficiency Mode* |
+| **`[04]` Overtake Risk** | High steering + low speed gap | *Collision Probability* |
+| **`[05]` Ideal Pit Window** | Tire Stress ↑ & Lap Time ↑ combined slope | *Pit Stop Timing* |
+
+### 🕸️ System Topology
+
+```mermaid
+graph TD;
+    subgraph Data Layer
+    A[Raw GR Cup CSV] -->|barber_telemetry| B(compute_metrics.py);
+    end
+    subgraph Compute Layer
+    B -->|Calculates 5 Vectors| C[race_metrics.csv];
+    end
+    subgraph Interface Layer
+    C -->|10Hz Sync| D[React + TS Dashboard];
+    D <-->|Context/State| E((OpenAI GPT-4o-mini));
+    D --> F[Live UI Insights];
+    end
+    
+    style A fill:#0b0f19,stroke:#00ffcc,stroke-width:2px,color:#fff
+    style B fill:#0b0f19,stroke:#00ffcc,stroke-width:2px,color:#fff
+    style C fill:#0b0f19,stroke:#00ffcc,stroke-width:2px,color:#fff
+    style D fill:#0b0f19,stroke:#00ffcc,stroke-width:2px,color:#fff
+    style E fill:#0b0f19,stroke:#ff0055,stroke-width:2px,color:#fff
+    style F fill:#0b0f19,stroke:#00ffcc,stroke-width:2px,color:#fff
+```
+
+---
+
+## ▓▒░ [ 04_DATASET_VERIFICATION ]
 
 **Toyota GR Cup - Barber Motorsports Park, Race 1**
 
-We used the **Barber dataset** provided for the competition:
+Data integrity is prioritized. The UI includes a hardened **Data Sources** panel mapping directly to the competition dataset:
+* 📁 `R1_barber_telemetry_data.csv` *(Throttle, brake, steering, accel, RPM, gear)*
+* 📁 `23_AnalysisEnduranceWithSections_Race 1_Anonymized.CSV` *(Lap times/sections)*
+* 📁 `26_Weather_Race 1_Anonymized.CSV` *(Weather matrix)*
+* 📁 `R1_barber_lap_time.csv` *(Timing data)*
 
-- `barber/R1_barber_telemetry_data.csv` - Real-time telemetry (throttle, brake, steering, acceleration, RPM, gear)
-- `barber/23_AnalysisEnduranceWithSections_Race 1_Anonymized.CSV` - Lap times and section analysis
-- `barber/26_Weather_Race 1_Anonymized.CSV` - Weather conditions
-- `barber/R1_barber_lap_time.csv` - Lap timing data
-
-**Data Verification:** The UI displays actual vehicle IDs (e.g., GR86-022-13) and source file names, proving all data comes from the provided dataset.
+> **Verification:** The UI explicitly displays exact vehicle IDs (e.g., `GR86-022-13`) and source file names, proving 100% of the data originates from the Barber dataset.
 
 ---
 
-## 🚀 Quick Start
+## ▓▒░ [ 05_QUICK_START ]
 
-### Prerequisites
+### ⚙️ Prerequisites
+* Python 3.9+
+* Node.js 18+
+* OpenAI API Key *(Optional: System auto-defaults to rule-based fallback if offline)*
 
-- Python 3.9+
-- Node.js 18+
-- OpenAI API Key (optional - system works with rule-based fallback)
+### 🚀 Boot Sequence
 
-### Installation & Setup
-
-#### 1. Compute Metrics (Python Backend)
-
+**1. Initialize Metrics Engine (Backend)**
 ```bash
 # Install Python dependencies
 pip install pandas numpy
 
-# Run metric computation
+# Execute metric computation matrix
 python3 compute_metrics.py
 ```
+*Generates `race_metrics.csv` for ~20 drivers on the grid.*
 
-This generates `race_metrics.csv` with computed metrics for all drivers (approximately 20 drivers).
-
-#### 2. Start UI (React Frontend)
-
+**2. Launch Telemetry UI (Frontend)**
 ```bash
 cd pitgpt---toyota-gr-cup-ai-engineer
 
 # Install dependencies
 npm install
 
-# Copy metrics to public directory
+# Inject metrics into public payload
 cp ../race_metrics.csv public/
 
-# (Optional) Create .env file for OpenAI API
+# (Optional) Set AI Key
 echo "OPENAI_API_KEY=your_key_here" > .env
 
-# Start development server
+# Ignite development server
 npm run dev
 ```
+*Access terminal via `http://localhost:3000`*
 
-The application will open at `http://localhost:3000`
-
-### Usage
-
-1. **Select a driver** from the dropdown menu
-2. **Click "Connect Car"** to start telemetry streaming
-3. **Monitor real-time data:**
-   - Live telemetry chart (speed, RPM)
-   - Car status panel (tire wear, temperatures, fuel)
-   - Strategic metrics (5 computed values)
-   - AI strategy recommendations
-4. **Verify data sources** in the "Data Sources" panel:
-   - Shows actual vehicle IDs from dataset
-   - Displays source file names
-   - Indicates Python metrics vs. calculated metrics
-
-### Testing
-
-**Verification Checklist:**
-- ✅ "TELEMETRY ONLINE" status appears when started
-- ✅ "Data Sources" panel shows real vehicle IDs (e.g., GR86-022-13)
-- ✅ Telemetry chart streams data in real-time
-- ✅ AI strategy recommendations appear within 4 seconds
-- ✅ Source files displayed (e.g., `R1_barber_telemetry_data.csv`)
+### 🧪 Testing Protocol
+1. **Select Driver** from the command dropdown.
+2. **Click "Connect Car"** to initiate the 10Hz telemetry stream.
+3. **Verify Status:** `TELEMETRY ONLINE` should illuminate.
+4. **Monitor:** Ensure live charts, 5 strategic vectors, and AI recommendations (4s delay) are actively rendering.
 
 ---
 
-## 🎯 Key Features
+## ▓▒░ [ 06_FILE_STRUCTURE ]
 
-### Real-Time Strategic Metrics
-
-1. **Tire Stress Index (0-100)**
-   - Monitors tire degradation in real-time
-   - Based on brake pressure, steering angle, and lateral G-forces
-   - Higher values indicate increased tire wear
-
-2. **Attack Window (0-1)**
-   - Identifies optimal overtaking opportunities
-   - Detects when lap time is decreasing while throttle > 70%
-   - Higher values indicate more aggressive driving windows
-
-3. **Fuel Conservation Mode (0-1)**
-   - Tracks fuel-saving driving patterns
-   - Based on low throttle + long braking coast periods
-   - Higher values indicate more fuel-efficient driving
-
-4. **Overtake Risk (0-1)**
-   - Calculates collision risk during passes
-   - Based on steering angle and speed gap to other cars
-   - Higher values indicate higher risk but necessary opportunities
-
-5. **Ideal Pit Window (0-1)**
-   - Determines optimal pit stop timing
-   - Combined slope of Tire Stress ↑ & Lap Time ↑
-   - Higher values indicate pit stop needed soon
-
-### AI Strategy Engine
-
-- **OpenAI GPT-4o-mini** for intelligent strategy recommendations
-- **Rule-based fallback** if API unavailable (always works)
-- **Driver style analysis** (Aggressive/Balanced/Conservative)
-- **Context-aware recommendations** based on current race state
-- **Risk alerts** and pit strategy suggestions
-
----
-
-## 📁 Project Structure
-
-```
+```text
 PitGPT/
-├── barber/                          # Race data files (Toyota GR Cup dataset)
-│   ├── R1_barber_telemetry_data.csv
-│   ├── R1_barber_lap_time.csv
-│   └── *.CSV                        # Additional analysis files
-├── compute_metrics.py               # Python backend - metric computation
-├── race_metrics.csv                 # Generated metrics (output)
-├── pitgpt---toyota-gr-cup-ai-engineer/  # React frontend
-│   ├── App.tsx                      # Main application component
-│   ├── components/                  # UI components
-│   │   ├── CarStatus.tsx
-│   │   ├── DataSourceInfo.tsx      # Data source verification panel
-│   │   ├── StrategyCard.tsx
-│   │   └── TelemetryChart.tsx
-│   ├── services/
-│   │   ├── raceMetricsService.ts   # Python metrics sync
-│   │   ├── openaiService.ts        # AI strategy recommendations
-│   │   └── realTelemetryService.ts # Real telemetry streaming
-│   └── public/
-│       └── race_metrics.csv        # Metrics served to UI
-└── README.md                        # This file
+├── barber/                          # 🏎️ Raw Toyota GR Cup Datasets
+├── compute_metrics.py               # ⚙️ Vector Calculation Engine
+├── race_metrics.csv                 # 📊 Compiled Metrics Payload
+├── pitgpt---toyota-gr-cup-ai-engineer/  
+│   ├── src/
+│   │   ├── components/              # 🧩 React UI Components
+│   │   │   ├── CarStatus.tsx
+│   │   │   ├── DataSourceInfo.tsx   # 🔍 Verification Panel
+│   │   │   ├── StrategyCard.tsx
+│   │   │   └── TelemetryChart.tsx
+│   │   ├── services/
+│   │   │   ├── raceMetricsService.ts
+│   │   │   ├── openaiService.ts     # 🧠 GPT Integration
+│   │   │   └── realTelemetryService.ts
+│   ├── public/                      # 🌐 Static Assets
+└── README.md                        # 📖 You are here
 ```
 
 ---
 
-## 🔧 Technology Stack
+## ▓▒░ [ 07_OPEN_SOURCE_&_LICENSE ]
 
-**Backend:**
-- Python 3.9+
-- pandas, numpy
+Built on the shoulders of giants. All original race strategy algorithms, metric computation, and UI components are proprietary to this submission. 
 
-**Frontend:**
-- React 19
-- TypeScript
-- Vite
-- TailwindCSS
-- Recharts (data visualization)
+* **UI/UX:** React v19, TypeScript v5, Vite v6, TailwindCSS, Lucide React
+* **Data Vis:** Recharts v3.5
+* **Data Sci:** Pandas, NumPy
+*(See `SUBMISSION_ANSWERS.md` for complete license compliance)*
 
-**AI Integration:**
-- OpenAI GPT-4o-mini (with rule-based fallback)
+Distributed under the **MIT License**.
 
 ---
 
-## 📝 How It Works
+## ▓▒░ [ 08_DEVELOPER_STATS ]
 
-### Data Pipeline
-
-1. **Raw Telemetry** → Python script processes CSV files
-2. **Metric Computation** → 5 strategic metrics calculated per driver
-3. **Metrics Output** → `race_metrics.csv` generated
-4. **UI Dashboard** → React app loads metrics and displays real-time
-5. **AI Analysis** → OpenAI analyzes metrics + telemetry → Strategy recommendations
-6. **Live Updates** → Dashboard updates every 100ms with new telemetry
-
-### Data Source Verification
-
-The UI includes a **"Data Sources" panel** that clearly shows:
-- Vehicle IDs from the dataset (e.g., GR86-022-13)
-- Source file names (`R1_barber_telemetry_data.csv`)
-- Frame counts from real telemetry
-- Whether metrics come from Python computation or live calculation
-
-This transparency allows judges to verify that all data originates from the provided Toyota GR Cup dataset.
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=builde7b0b&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="150" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=builde7b0b&theme=tokyonight&hide_border=true&layout=compact" height="150" alt="Top Languages" />
+</div>
 
 ---
 
-## 🧪 Testing Instructions
-
-### Step-by-Step Testing
-
-1. **Generate Metrics:**
-   ```bash
-   python3 compute_metrics.py
-   # Should create race_metrics.csv with ~20 drivers
-   ```
-
-2. **Start Application:**
-   ```bash
-   cd pitgpt---toyota-gr-cup-ai-engineer
-   npm install
-   cp ../race_metrics.csv public/
-   npm run dev
-   ```
-
-3. **Verify Functionality:**
-   - Select a driver from dropdown
-   - Click "Connect Car" button
-   - Verify "TELEMETRY ONLINE" status
-   - Check Data Sources panel shows real vehicle IDs
-   - Confirm telemetry chart is streaming
-   - Wait 4 seconds for AI strategy to appear
-
-### Expected Output
-
-- ✅ 20 drivers available in dropdown
-- ✅ Real-time telemetry streaming at 10Hz
-- ✅ 5 strategic metrics displayed
-- ✅ AI strategy recommendations updating
-- ✅ Data source indicators showing real vs calculated data
-
----
-
-## 🔍 Open Source Credits
-
-This project uses the following open source libraries:
-
-- **React** v19.2.0 (MIT License) - UI framework
-- **TypeScript** v5.8.2 (Apache 2.0) - Type-safe JavaScript
-- **Vite** v6.2.0 (MIT) - Build tool
-- **Recharts** v3.5.0 (MIT) - Data visualization
-- **Lucide React** v0.554.0 (ISC) - Icons
-- **TailwindCSS** (MIT) - CSS framework
-- **pandas** (BSD 3-Clause) - Python data processing
-- **numpy** (BSD 3-Clause) - Python numerical computing
-
-All licenses permit commercial use. See `SUBMISSION_ANSWERS.md` for complete open source credits and license compliance details.
-
-**Original Contributions:** All race strategy algorithms, metrics computation, UI components, and data processing pipelines are original work.
-
----
-
-## 📄 License
-
-MIT License
-
----
-
-## 🏁 Built for Toyota GR Cup
-
-**Race Engineering Intelligence // Real-Time Strategic Analysis**
-
----
-
-## 📋 Additional Documentation
-
-- **`SUBMISSION_ANSWERS.md`** - Complete submission documentation including:
-  - Detailed testing instructions
-  - Dataset information (Barber Motorsports Park)
-  - Open source credits and license compliance
-  - All submission form answers
-
-For questions about implementation or data sources, refer to the "Data Sources" panel in the UI or review the source code.
+<div align="center">
+  <h3> 🏁 BUILD PHILOSOPHY 🏁 </h3>
+  <p><i>"Data without interpretation is just noise. The ultimate race engineer doesn't just read the telemetry; they predict the future."</i></p>
+  <p><b>Built for the Toyota GR Cup.</b></p>
+</div>
